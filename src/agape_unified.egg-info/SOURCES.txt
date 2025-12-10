@@ -6,3 +6,5 @@ src/agape_unified.egg-info/SOURCES.txt
 src/agape_unified.egg-info/dependency_links.txt
 src/agape_unified.egg-info/requires.txt
 src/agape_unified.egg-info/top_level.txt
+src/resonance/__init__.py
+src/resonance/quick_test.py
