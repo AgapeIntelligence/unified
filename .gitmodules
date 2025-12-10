@@ -1,0 +1,3 @@
+[submodule "src/resonance/sovariel"]
+	path = src/resonance/sovariel
+	url = https://github.com/AgapeIntelligence/Sovariel.git
