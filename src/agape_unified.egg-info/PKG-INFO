@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: agape-unified
+Version: 1.0.0
+Summary: Unified AgapeIntelligence Framework
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: jax[cpu]
+Requires-Dist: qutip
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: gradio
+Requires-Dist: httpx
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

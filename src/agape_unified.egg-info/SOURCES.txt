@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+src/agape_unified.egg-info/PKG-INFO
+src/agape_unified.egg-info/SOURCES.txt
+src/agape_unified.egg-info/dependency_links.txt
+src/agape_unified.egg-info/requires.txt
+src/agape_unified.egg-info/top_level.txt

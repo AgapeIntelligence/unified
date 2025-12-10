@@ -1,0 +1,6 @@
+jax[cpu]
+qutip
+numpy
+scipy
+gradio
+httpx
