@@ -13,3 +13,9 @@
 [submodule "src/src/planetary/dyson_swarm"]
 	path = src/src/planetary/dyson_swarm
 	url = https://github.com/AgapeIntelligence/Dyson-swarm-calculator.git
+[submodule "src/src/resonance/dodecagonal"]
+	path = src/src/resonance/dodecagonal
+	url = https://github.com/AgapeIntelligence/dodecagonal-golden-interference.git
+[submodule "src/src/quantum/quantum_orchestrated"]
+	path = src/src/quantum/quantum_orchestrated
+	url = https://github.com/AgapeIntelligence/Quantum-Orchestrated-Consciousness-.git
