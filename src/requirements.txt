@@ -2,3 +2,5 @@ torch>=2.0
 torch
 pytorch-lightning
 pytorch-lightning>=2.0
+scipy>=1.10
+astropy>=5.0

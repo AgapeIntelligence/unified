@@ -10,3 +10,6 @@
 [submodule "src/src/cognition/uniphi_agi"]
 	path = src/src/cognition/uniphi_agi
 	url = https://github.com/AgapeIntelligence/UniPhiAGI.git
+[submodule "src/src/planetary/dyson_swarm"]
+	path = src/src/planetary/dyson_swarm
+	url = https://github.com/AgapeIntelligence/Dyson-swarm-calculator.git
