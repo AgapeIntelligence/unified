@@ -7,3 +7,4 @@ astropy>=5.0
 qutip>=4.7
 cryptography>=3.4
 pygame>=2.0
+numpy>=1.24

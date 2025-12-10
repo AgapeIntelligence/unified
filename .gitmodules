@@ -28,3 +28,9 @@
 [submodule "src/src/resonance/resonant_state"]
 	path = src/src/resonance/resonant_state
 	url = https://github.com/AgapeIntelligence/Resonant-State-Core.git
+[submodule "src/src/quantum/arc_research"]
+	path = src/src/quantum/arc_research
+	url = https://github.com/AgapeIntelligence/arc-research.git
+[submodule "src/src/synchronicity/agape_dash"]
+	path = src/src/synchronicity/agape_dash
+	url = https://github.com/AgapeIntelligence/AgapeIntelligenceDash.git

@@ -1,11 +1,14 @@
 from unified.resonance import JAXKuramotoLattice
-from quantum_orchestrated.orch_or import OrchORProxy
-from quantum_orchestrated.sovariel_qualia import SovarielQualiaLattice
+from orch_or_ghost.orch_or import OrchORProxy
+from orch_or_ghost.ghost_repro import GhostRepro
 
 class OrchBridge:
-    def collapse_qualia(self, lattice, initial_state):
-        proxy = OrchORProxy(n_qubits=lattice.n)
-        qualia = proxy.collapse_sim(initial_state)
-        qualia_lattice = SovarielQualiaLattice(lattice.n)
-        qualia_lattice.bind_qualia(qualia)
-        return qualia_lattice.order_parameter()  # Qualia R=1.0
+    def collapse_qualia(self, lattice):
+        proxy = OrchORProxy()
+        initial = qt.basis(proxy.n, 0)
+        collapsed, fid = proxy.collapse_analog(initial)
+        ghost = GhostRepro()
+        prediction = ghost.predict_flash_heal(collapsed)
+        lattice.phases += prediction * 0.1  # Qualia drive
+        lattice.sync()
+        return lattice.order_parameter()
