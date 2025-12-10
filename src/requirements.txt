@@ -5,3 +5,5 @@ pytorch-lightning>=2.0
 scipy>=1.10
 astropy>=5.0
 qutip>=4.7
+cryptography>=3.4
+pygame>=2.0

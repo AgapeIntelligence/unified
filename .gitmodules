@@ -19,3 +19,12 @@
 [submodule "src/src/quantum/quantum_orchestrated"]
 	path = src/src/quantum/quantum_orchestrated
 	url = https://github.com/AgapeIntelligence/Quantum-Orchestrated-Consciousness-.git
+[submodule "src/src/quantum/orch_or_ghost"]
+	path = src/src/quantum/orch_or_ghost
+	url = https://github.com/AgapeIntelligence/orch_or_ghost_repro.git
+[submodule "src/src/planetary/precision_climate"]
+	path = src/src/planetary/precision_climate
+	url = https://github.com/AgapeIntelligence/PrecisionClimateRobot.git
+[submodule "src/src/resonance/resonant_state"]
+	path = src/src/resonance/resonant_state
+	url = https://github.com/AgapeIntelligence/Resonant-State-Core.git
