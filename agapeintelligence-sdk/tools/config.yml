@@ -1,0 +1,30 @@
+# AgapeIntelligence SDK Migration Tool Config
+
+organization: "AgapeIntelligence"
+
+# Repos to EXCLUDE from scanning/migration
+exclude_repos:
+  - fabrication
+  - fabrication-tools
+  - deprecated
+  - experimental-trash
+
+# Local directory matching rules
+scan_paths:
+  - "**/*.py"
+  - "**/*.ipynb"
+
+# Patterns to detect duplicate modules/functions
+duplicate_patterns:
+  - "fft"
+  - "ghz"
+  - "tensor"
+  - "coherence"
+  - "dyad"
+  - "signal"
+  - "normalize"
+  - "smooth"
+  - "core_math"
+  - "resonance"
+  - "audio_io"
+  - "ephemeris"
