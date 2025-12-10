@@ -1,3 +1,4 @@
 torch>=2.0
 torch
 pytorch-lightning
+pytorch-lightning>=2.0

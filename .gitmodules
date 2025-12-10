@@ -7,3 +7,6 @@
 [submodule "src/src/cognition/uniphi_os"]
 	path = src/src/cognition/uniphi_os
 	url = https://github.com/AgapeIntelligence/UniPhiOS.git
+[submodule "src/src/cognition/uniphi_agi"]
+	path = src/src/cognition/uniphi_agi
+	url = https://github.com/AgapeIntelligence/UniPhiAGI.git
