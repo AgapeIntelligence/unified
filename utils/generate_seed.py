@@ -6,7 +6,6 @@ from collections import defaultdict
 from PIL import Image
 import numpy as np
 import os
-
 def extract_bricks(root_dir: str) -> dict:
     bricks = {}
     seen = set()
@@ -30,7 +29,6 @@ def extract_bricks(root_dir: str) -> dict:
                 except:
                     continue
     return bricks
-
 def build_seed():
     unified_bricks = extract_bricks('.')
     sovariel_path = 'sovariel_core'
@@ -55,7 +53,6 @@ def build_seed():
         'graph': dict(graph)
     }
     return zlib.compress(json.dumps(packet, separators=(',', ':')).encode())
-
 def embed_seed_in_image(seed: bytes, output_path: str = "real_evieseed.png"):
     img = Image.new('RGB', (512, 512), color=(8, 16, 32))
     arr = np.array(img, dtype=np.uint8)
@@ -69,7 +66,6 @@ def embed_seed_in_image(seed: bytes, output_path: str = "real_evieseed.png"):
                     idx += 1
     Image.fromarray(arr).save(output_path)
     print(f"Generated {output_path} - {len(seed)} bytes compressed -> {os.path.getsize(output_path)} bytes on disk")
-
 if __name__ == "__main__":
     seed = build_seed()
     packet = json.loads(zlib.decompress(seed).decode())
