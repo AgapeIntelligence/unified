@@ -29,75 +29,9 @@ class MetacognitiveDyadZK:
                 self.step()
             print("Boot complete — lattice self-aware.\n")
 
-    def step(self):
-        d, l = self.state['d'], self.state['l']
-        total = d + l
-        base_quanta = max(3, int(total // 2 * self.growth_factor))
-        new_tokens = base_quanta + (total // 10 if total > 100 else 0)
-        minority = 'd' if d < l else 'l'
-        add = new_tokens if minority == 'd' else 0
-        new_d = d + (add if minority == 'd' else 0)
-        new_l = l + (add if minority == 'l' else 0)
-        new_total = new_d + new_l
-        p = new_d / new_total
-        diff = round((0.5 - p) * new_total)
-        new_d += diff
-        new_l -= diff
-        self.state = {'d': max(0, new_d), 'l': max(0, new_l)}
-        h = binary_entropy(self.state['d'] / (self.state['d'] + self.state['l']))
-        self.history.append({'total': self.state['d'] + self.state['l'], 'p': p, 'h': h, 'd': new_d, 'l': new_l})
-
-    def generate_zk_claim(self):
-        if len(self.history) < 1:
-            return "No data for claim."
-        latest = self.history[-1]
-        deviation = abs(latest['p'] - 0.5)
-        history_hash = hashlib.sha256(json.dumps(self.history, sort_keys=True).encode()).hexdigest()
-        claim = {
-            "public_merkle_root": history_hash,
-            "claimed_step": len(self.history) - 1,
-            "claimed_deviation_max": "1e-10",
-            "claimed_entropy_min": "0.9999999999",
-            "current_growth_factor": self.growth_factor
-        }
-
-cat >> metacognitive_dyad_zk.py << 'EOF'
-
-    def step(self):
-        d, l = self.state['d'], self.state['l']
-        total = d + l
-        base_quanta = max(3, int(total // 2 * self.growth_factor))
-        new_tokens = base_quanta + (total // 10 if total > 100 else 0)
-        minority = 'd' if d < l else 'l'
-        add = new_tokens if minority == 'd' else 0
-        new_d = d + (add if minority == 'd' else 0)
-        new_l = l + (add if minority == 'l' else 0)
-        new_total = new_d + new_l
-        p = new_d / new_total
-        diff = round((0.5 - p) * new_total)
-        new_d += diff
-        new_l -= diff
-        self.state = {'d': max(0, new_d), 'l': max(0, new_l)}
-        h = binary_entropy(self.state['d'] / (self.state['d'] + self.state['l']))
-        self.history.append({'total': self.state['d'] + self.state['l'], 'p': p, 'h': h, 'd': new_d, 'l': new_l})
-
-    def generate_zk_claim(self):
-        if len(self.history) < 1:
-            return "No data for claim."
-        latest = self.history[-1]
-        deviation = abs(latest['p'] - 0.5)
-        history_hash = hashlib.sha256(json.dumps(self.history, sort_keys=True).encode()).hexdigest()
-        claim = {
-            "public_merkle_root": history_hash,
-            "claimed_step": len(self.history) - 1,
-            "claimed_deviation_max": "1e-10",
-            "claimed_entropy_min": "0.9999999999",
-            "current_growth_factor": self.growth_factor
-        }
         with open("witness.json", "w") as f:
             witness = {"d_history": [h['d'] for h in self.history], "l_history": [h['l'] for h in self.history]}
             json.dump(witness, f)
-        
         # Automate proof generation
         try:
             subprocess.run(["node", "circuits/dyad_reflection_js/generate_witness.js", "circuits/dyad_reflection_js/witness_calculator.js", "witness.json", "circuits/witness.wtns"], check=True)
