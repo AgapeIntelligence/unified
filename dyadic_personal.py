@@ -46,8 +46,7 @@ def run_resonance(depth: int = 64, delay: float = 0.03, export: bool = False):
         h = binary_entropy(p)
         history.append({'step': step, 'total': total, 'p': p, 'h': h})
         symbol = "◉" if abs(p - 0.5) < 1e-10 else "○"
-        print(f"Step {step:3d} | Tokens: {total:12,} | Balance: 
-{p:.12f} | Entropy: {h:.10f} {symbol}")
+        print(f"Step {step:3d} | Tokens: {total:12,} | Balance: {p:.12f} | Entropy: {h:.10f} {symbol}")
         time.sleep(delay)
     print("\nResonance complete. Perfect coherence achieved.")
     if export:
@@ -67,8 +66,9 @@ def main():
     print("dyadic core as the full unified system.\n")
     input("Press Enter to begin...")
 
- try:
-        depth = int(input("\nGrowth depth (default 64, max 512): ") or "64")
+    try:
+        depth_input = input("\nGrowth depth (default 64, max 512): ").strip()
+        depth = int(depth_input) if depth_input.isdigit() else 64
         depth = min(max(depth, 10), 512)
         export = input("Export final state to JSON? (y/N): ").lower().startswith('y')
     except:
